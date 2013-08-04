@@ -1,0 +1,14 @@
+@font-face {
+	font-family: 'FingerPaint';
+	src: url('../fonts/FingerPaint-Regular.ttf');
+}
+
+body {
+	font-family: 'FingerPaint', cursive;
+	background-color: #AADA6C;
+	margin: 0px;
+}
+
+#game {
+	border: solid 1px #eee;
+}
