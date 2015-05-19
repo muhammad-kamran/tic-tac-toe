@@ -41,43 +41,63 @@ $(document).ready(function() {
 		var drawX = null;
 		var drawY = null;
 		
+		var indexRow = null;
+		var indexCol = null;
+		
 		if (x >= 5 && x <= 105 && y >= 5 && y <= 105) { // 0,0
 			drawX = 30;
 			drawY = 70;
-			items[0][0] = currentPlayer;
+			indexRow = 0;
+			indexCol = 0;
 		} else if (x >= 110 && x <= 210 && y >= 5 && y <= 105) { // 0,1
 			drawX = 130;
 			drawY = 70;
-			items[0][1] = currentPlayer;
+			indexRow = 0;
+			indexCol = 1;
 		} else if (x >= 215 && x <= 315 && y >= 5 && y <= 105) { // 0,2
 			drawX = 240;
 			drawY = 70;
-			items[0][2] = currentPlayer;
+			indexRow = 0;
+			indexCol = 2;
 		} else if (x >= 5 && x <= 105 && y >= 110 && y <= 210) { // 1,0
 			drawX = 30;
 			drawY = 170;
-			items[1][0] = currentPlayer;			
+			indexRow = 1;
+			indexCol = 0;
 		} else if (x >= 110 && x <= 210 && y >= 110 && y <= 210) { // 1,1
 			drawX = 130;
 			drawY = 170;
-			items[1][1] = currentPlayer;
+			indexRow = 1;
+			indexCol = 1;
 		} else if (x >= 215 && x <= 315 && y >= 110 && y <= 210) { // 1,2
 			drawX = 240;
 			drawY = 170;
-			items[1][2] = currentPlayer;
+			indexRow = 1;
+			indexCol = 2;
 		} else if (x > 5 && x < 115 && y > 215 && y < 315) { // 2,0
 			drawX = 30;
 			drawY = 270;
-			items[2][0] = currentPlayer;
+			indexRow = 2;
+			indexCol = 0;
 		} else if (x > 110 && x < 210 && y > 215 && y < 315) { // 2,1
 			drawX = 130;
 			drawY = 270;
-			items[2][1] = currentPlayer;
+			indexRow = 2;
+			indexCol = 1;
 		} else if (x > 215 && x < 315 && y > 215 && y < 315) { // 2,2
 			drawX = 240;
 			drawY = 270;
-			items[2][2] = currentPlayer;
+			indexRow = 2;
+			indexCol = 2;
 		}
+		
+		// check if the selected spot is already used
+		if (items[indexRow][indexCol] !== null) {
+			alert('This spot is alrady used!');
+			return;
+		}
+		
+		items[indexRow][indexCol] = currentPlayer;
 		
 		if (drawX != null && drawY != null) {
 			ctx.fillStyle = "orange";
